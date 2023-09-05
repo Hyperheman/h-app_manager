@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protection</title>
+    <style>
+        /* Global styles */
+        body, html {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(45deg, #333, #000, #333, #000);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: #fff; /* White text */
+            margin: 0;
+        }
+
+        /* Keyframes for gradient animation */
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Password protection styles */
+        .password-container {
+            margin-top: 100px;
+        }
+        .password-input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+        }
+        .unlock-button {
+            padding: 10px 20px;
+            background-color: #2196F3; /* Blue color */
+            color: #fff; /* White text */
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+        .unlock-button:hover {
+            background-color: #64B5F6; /* Lighter blue color on hover */
+        }
+        /* Content styles */
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+        .content.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container">
+        <h1>Password Protected Page</h1>
+        <p>Enter the password to unlock the content:</p>
+        <input type="password" id="password" class="password-input" placeholder="Password">
+        <button id="unlock" class="unlock-button">Unlock</button>
+    </div>
+    
+    <div class="content" id="content">
+        <h2>Welcome to the tech-brows</h2>
+        <p>your browser is done is complete now nothing is left thanks visit again</p>
+    </div>
+
+    <script>
+        // JavaScript to handle password validation and content display
+        document.getElementById("unlock").addEventListener("click", function() {
+            const password = document.getElementById("password").value;
+            if (password === "tech-brows") {
+                // Unlock the content
+                document.getElementById("content").classList.add("show");
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
